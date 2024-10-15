@@ -19,8 +19,9 @@
 
         const authUrl = getQueryParam('authUrl');
 
+        const telegramWidget = document.getElementById('telegram-widget');
+
         if (authUrl) {
-            const telegramWidget = document.getElementById('telegram-widget');
             telegramWidget.setAttribute('data-auth-url', authUrl);
         }else{
             telegramWidget.setAttribute('data-auth-url', "");
