@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login with Telegram</title>
+</head>
+<body>
+    <h1>Login with Telegram</h1>
+    <script async src="https://telegram.org/js/telegram-widget.js" id="telegram-widget"
+        data-telegram-login="test1234slime_bot" 
+        data-size="large"></script>
+
+    <script>
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        const authUrl = getQueryParam('authUrl');
+
+        if (authUrl) {
+            const telegramWidget = document.getElementById('telegram-widget');
+            telegramWidget.setAttribute('data-auth-url', authUrl);
+        }else{
+            telegramWidget.setAttribute('data-auth-url', "");
+        }
+    </script>
+</body>
+</html>
